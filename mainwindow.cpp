@@ -41,9 +41,6 @@ MainWindow::MainWindow(QWidget *parent) :
     } );
 
     QObject::connect( ui->buttonBox, &QDialogButtonBox::clicked, this, [=](QAbstractButton* btn) {
-
-        qDebug() << btn->
-
         QMessageBox msgBox;
         msgBox.setText("Button " + btn->text());
         msgBox.exec();
