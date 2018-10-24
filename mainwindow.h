@@ -17,6 +17,13 @@ public:
 
 private:
     Ui::MainWindow *ui;
+
+    QString currentFile;
+
+    void openFile();
+    void saveFile();
+    void printFile();
+
 };
 
 #endif // MAINWINDOW_H
