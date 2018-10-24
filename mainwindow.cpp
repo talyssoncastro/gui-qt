@@ -6,6 +6,7 @@
 #include <QMessageBox>
 #include <QPrinter>
 #include <QPrintDialog>
+#include <QStyle>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -156,12 +157,11 @@ void MainWindow::on_pushButton_2_clicked()
 {
     QSystemTrayIcon* trayIcon = new QSystemTrayIcon(this);
     trayIcon->setIcon(this->style()->standardIcon(QStyle::SP_ComputerIcon));
-    trayIcon->setToolTip("Tray Program" "\n"
-                         "Работа со сворачиванием программы трей");
+    trayIcon->setToolTip("Tray Program");
     /* After that create a context menu of two items */
     QMenu * menu = new QMenu(this);
-    QAction * viewWindow = new QAction(trUtf8("Развернуть окно"), this);
-    QAction * quitAction = new QAction(trUtf8("Выход"), this);
+    QAction * viewWindow = new QAction(trUtf8("Show"), this);
+    QAction * quitAction = new QAction(trUtf8("Close"), this);
 
     menu->addAction(viewWindow);
     menu->addAction(quitAction);
