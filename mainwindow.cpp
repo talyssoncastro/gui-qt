@@ -151,3 +151,29 @@ void MainWindow::printFile() {
     ui->textEdit->print(&printer);
 
 }
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    QSystemTrayIcon* trayIcon = new QSystemTrayIcon(this);
+    trayIcon->setIcon(this->style()->standardIcon(QStyle::SP_ComputerIcon));
+    trayIcon->setToolTip("Tray Program" "\n"
+                         "Работа со сворачиванием программы трей");
+    /* After that create a context menu of two items */
+    QMenu * menu = new QMenu(this);
+    QAction * viewWindow = new QAction(trUtf8("Развернуть окно"), this);
+    QAction * quitAction = new QAction(trUtf8("Выход"), this);
+
+    menu->addAction(viewWindow);
+    menu->addAction(quitAction);
+
+    trayIcon->setContextMenu(menu);
+    trayIcon->show();
+
+    connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)),
+                this, SLOT(iconActivated(QSystemTrayIcon::ActivationReason)));
+
+}
+
+void MainWindow::iconActivated(QSystemTrayIcon::ActivationReason reason) {
+
+}
